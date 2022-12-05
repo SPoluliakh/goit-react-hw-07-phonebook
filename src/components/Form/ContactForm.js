@@ -6,10 +6,10 @@ import {
   FormInput,
   FormBtn,
 } from './ContactForm.styled';
-import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact, getContacts } from '../../Redux/contactSlice';
+import { postContacts } from 'Redux/contacts/contactsOperations';
+import { getContacts } from '../../Redux/contacts/contactsSelectors';
 
 const ContactForm = () => {
   const contactList = useSelector(getContacts);
@@ -41,10 +41,10 @@ const ContactForm = () => {
     }
     const contactToAdd = {
       name,
-      id: nanoid(),
-      number,
+
+      phone: number,
     };
-    dispatch(addContact(contactToAdd));
+    dispatch(postContacts(contactToAdd));
     reset();
   };
 
