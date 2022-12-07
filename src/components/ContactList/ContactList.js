@@ -10,7 +10,7 @@ const ContactList = () => {
   const contactList = useSelector(getContacts);
   const filterItem = useSelector(getFilter);
   const dispatch = useDispatch();
-  console.log('qqqqq', contactList);
+
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
