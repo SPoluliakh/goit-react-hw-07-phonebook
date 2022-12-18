@@ -1,4 +1,3 @@
-import React, { useEffect, useMemo } from 'react';
 import { List } from './ContactList.styled';
 import ContactListItem from '../ContactListItem';
 import { useSelector, useDispatch } from 'react-redux';
