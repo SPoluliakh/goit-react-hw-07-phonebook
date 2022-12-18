@@ -16,18 +16,18 @@ const ContactList = () => {
   }, [dispatch]);
 
   //Responsible for rendering the requested/all contacts
-  const findContactbyName = useMemo(() => {
+  const findContactbyName = () => {
     return contactList.filter(contact =>
       contact?.name.toLowerCase().includes(filterItem)
     );
-  }, [contactList, filterItem]);
+  };
 
   return (
     <>
-      <h2>Contacts : {findContactbyName.length}</h2>
+      <h2>Contacts : {findContactbyName()?.length}</h2>
 
       <List>
-        {findContactbyName.map(({ name, phone, id }) => (
+        {findContactbyName()?.map(({ name, phone, id }) => (
           <ContactListItem key={id} name={name} number={phone} id={id} />
         ))}
       </List>
